@@ -1,7 +1,7 @@
 #pragma once
 #include <TFT_eSPI.h>
 
-// Kolory w odcieniach zieleni
+// Odcienie zieleni
 #define DARK_GREEN 0x03E0
 #define MEDIUM_GREEN 0x07E0
 #define LIGHT_GREEN 0xAFE5
@@ -9,10 +9,10 @@
 #define BACKGROUND_GREEN 0x02A0
 
 void drawSplashScreen(TFT_eSPI &tft) {
-    // Wypełnij tło
+    
     tft.fillScreen(BACKGROUND_GREEN);
     
-    // Narysuj stylizowany tytuł
+    
     tft.setTextColor(TEXT_GREEN);
     tft.setTextSize(3);
     tft.setCursor(40, 50);
@@ -22,7 +22,7 @@ void drawSplashScreen(TFT_eSPI &tft) {
     tft.setCursor(80, 90);
     tft.print("Rafal Jakimow");
     
-    // Narysuj prostą grafikę gór
+    // Grafika gór
     int mountainY = 200;
     int mountainHeight = 120;
     
@@ -41,12 +41,12 @@ void drawSplashScreen(TFT_eSPI &tft) {
                     350, mountainY + mountainHeight, 
                     300, mountainY, LIGHT_GREEN);
     
-    // Dodaj prostą mapę w tle
+    // Tło mapa
     tft.drawRect(50, 350, 220, 100, LIGHT_GREEN);
     tft.drawLine(50, 400, 270, 400, LIGHT_GREEN);
     tft.drawLine(160, 350, 160, 450, LIGHT_GREEN);
     
-    // Dodaj kompas
+    // Kompas
     tft.fillCircle(280, 380, 30, MEDIUM_GREEN);
     tft.drawCircle(280, 380, 35, TEXT_GREEN);
     tft.setTextSize(1);
@@ -59,7 +59,7 @@ void drawSplashScreen(TFT_eSPI &tft) {
     tft.setCursor(295, 380);
     tft.print("E");
     
-    // Dodaj animację ładowania
+    // ładowanie
     for (int i = 0; i < 10; i++) {
         tft.fillRect(100 + i * 12, 300, 8, 8, i % 2 == 0 ? LIGHT_GREEN : DARK_GREEN);
         delay(100);
