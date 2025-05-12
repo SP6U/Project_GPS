@@ -281,7 +281,7 @@ void drawWeatherScreen() {
   tft.setCursor(100, 20);
   tft.print("POGODA");
   
-  // Rysuj ikony pogodowe
+  // Ikony pogodowe
   tft.fillCircle(50, 80, 20, WEATHER_ACCENT_COLOR); // Słońce
   for (int i = 0; i < 8; i++) {
     float angle = i * PI / 4;
